@@ -1,0 +1,11 @@
+target qnx 169.254.0.1:1234
+display/5i $pc
+set nto-executable /usr/sbin/eagent-msm8x60
+set architecture arm
+set arm fallback-mode arm
+
+start
+
+set $base = (char *)&main - 0x134ac
+b *($base+0x19ed8)
+b *($base+0x1a998)
